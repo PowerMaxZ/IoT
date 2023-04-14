@@ -2,17 +2,15 @@
 
 ## This is a team folder of:
 
-[powermaxz](/powermaxz/)
+powermaxz
 
-[Gautier30](/Gautier30/)
+Gautier30
 
-[GYPM4H](/GYPM4H/)
+GYPM4H
 
-[Natomac](/Natomac/)
+Natomac
 
-[maakler](/maakler/)
-
-[TeamFolder](/TeamFolder/)
+maakler
 
 On week 10, we have teamed up to work on the final project.
 
