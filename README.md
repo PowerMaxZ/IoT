@@ -16,6 +16,48 @@ On week 10, we have teamed up to work on the final project.
 
 ## Our project - HarvestMate:
 
+List of possible data:
+
+- He wants to measure the amount light that comes in the window;
+- Maybe control an LED light;
+- Measure the hight of the plants from the light;
+- Measure PH from water;(v2)
+- He needs to control a water pump for auto watering; (v2)
+- Measure Ar humidity; (DHT11)
+- Monitoring data daily (graph the data); (Dashboard)
+- CO2 sensor;
+- Timelapse the growth of plants (Instagram);
+- dashboard;
+- Scale amount of harvest. 
+- music wth the plant,
+- Screen with dashboard.
+- Local data storage.
+
+
+
+List of Sensors:
+
+- LIDAR - laser,
+- DHT11 - Temp and humidity,
+- Capacitive soil sensor - soil humdity
+- APDS 9660 - Light and color sensor. (LDR)
+- Relay for LED lights
+- CO2 gas sensor
+- PH water sensor.
+
+List of Materials: 
+
+- Solder;
+- Soldering iron;
+- Hot glue;
+- Wires;
+- 3D printer(?);
+- Scissors;
+- Knife;
+- Scotch tape. 
+
+
+
 ## HarvestMate scenario:
 
 Joanna Greenthumb is a new PhD student at the University of Tartu computer science program. She moved to Tartu, Estonia from Guiana, a tropical country in South America. She really loves to eat fresh salad, and she is not able to get enough greens in Estonia's winter months. She even feels that she is having vitamin withdrawals. She realized that needed to eat more fresh greens. As she can not find good fresh salads at the supermarkets she decided to get a planter box and grow some micro-greens on her own house. She wants to eventually grown enough salad for herself just on the balcony with planter boxes.
@@ -29,6 +71,7 @@ Because she is a PhD student, she is quite busy sometimes, she realizes that it 
 She remembers that it would also be a good idea to have reading and data from the soil humidity and also air humidity to further analyses the relationship between these and how fast the tank water must be refilled. She decides that the planter needs a **Capacitive Soil Sensor** and also a **DHT 11 or DHT 22** to measure air humidity and room temperature close to the window.  
 
 
+TODO
 
 FROM HERE DOWN IS JUST A DRAFT OF IDEAS FROM OUR OLD SCENARIO // I will include them in our story this weekend. 
 
