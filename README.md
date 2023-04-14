@@ -12,6 +12,9 @@
 
 [maakler](/maakler/)
 
+[TeamFolder](/TeamFolder/)
+
 On week 10, we have teamed up to work on the final project.
 
-## Our project:
+## Our project - HarvestMate:
+
