@@ -1,6 +1,6 @@
 # IoT
 
-## This is a team folder of:
+## Team Members:
 
 powermaxz
 
@@ -16,7 +16,7 @@ On week 10, we have teamed up to work on the final project.
 
 ## Our project - HarvestMate:
 
-List of possible data:
+## List of Possible Data To Be Collected:
 
 - He wants to measure the amount light that comes in the window;
 - Maybe control an LED light;
@@ -35,14 +35,14 @@ List of possible data:
 
 
 
-List of Sensors:
+## List of Sensors:
 
-- VL53L0X Lidar - laser distance sensor,
-- DHT11 - Temp and humidity,
-- Capacitive soil sensor - soil humdity
-- APDS 9660 - Light and color sensor. (LDR)
-- Relay for LED lights
-- CO2 gas sensor
+- VL53L0X Lidar - laser distance sensor;
+- DHT11 - Temp and humidity;
+- Capacitive soil sensor - soil humdity;
+- APDS 9660 - Light and color sensor (LDR is an alternative);
+- Relay shield for LED lights;
+- CO2 gas sensor;
 - PH water sensor.
 
 List of Materials: 
@@ -58,7 +58,7 @@ List of Materials:
 
 
 
-## HarvestMate scenario:
+## HarvestMate Scenario:
 
 ### The project:
 
@@ -103,6 +103,8 @@ These measurements can be done once a day only as these changes happens slowly o
 ### Improvements:
 
 The HarvestMate project can be expanded depending on what Joanna learns from her first prototype. Other sensors and actors can be implemented in a later stage to refine the design to accommodate other needs. 
+
+It could also be interesting to measure the CO2 level around the plants at different stages. For this we could use the CO2 gas sensor. 
 
 
 
