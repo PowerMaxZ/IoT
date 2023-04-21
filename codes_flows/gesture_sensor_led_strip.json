@@ -1,0 +1,671 @@
+[
+    {
+        "id": "d62ce10cf8124030",
+        "type": "tab",
+        "label": "Light_sensor",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ca73664d215999b1",
+        "type": "mqtt in",
+        "z": "d62ce10cf8124030",
+        "name": "light density",
+        "topic": "gesture/gesture/color",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "4d6296f2db4785e3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 70,
+        "y": 660,
+        "wires": [
+            [
+                "552ceac8925d31df"
+            ]
+        ]
+    },
+    {
+        "id": "552ceac8925d31df",
+        "type": "function",
+        "z": "d62ce10cf8124030",
+        "name": "Parse Input",
+        "func": "var data = msg.payload.split(',').map(Number);\n\nmsg.payload = [\n    { id: 'lightIntensity', value: data[0] },\n    { id: 'red', value: data[1] },\n    { id: 'green', value: data[2] },\n    { id: 'blue', value: data[3] },\n];\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 660,
+        "wires": [
+            [
+                "ae29d2e30f6baed4"
+            ]
+        ]
+    },
+    {
+        "id": "ae29d2e30f6baed4",
+        "type": "split",
+        "z": "d62ce10cf8124030",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": true,
+        "addname": "",
+        "x": 550,
+        "y": 660,
+        "wires": [
+            [
+                "1624739fdd499e72",
+                "52eb727a589da3da",
+                "5f0fcda253a41ec3",
+                "458ae4071818b392"
+            ]
+        ]
+    },
+    {
+        "id": "1624739fdd499e72",
+        "type": "switch",
+        "z": "d62ce10cf8124030",
+        "name": "RED",
+        "property": "payload.id",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "red",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 750,
+        "y": 620,
+        "wires": [
+            [
+                "5387a374560c689b"
+            ]
+        ]
+    },
+    {
+        "id": "5387a374560c689b",
+        "type": "change",
+        "z": "d62ce10cf8124030",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.value",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 960,
+        "y": 620,
+        "wires": [
+            [
+                "c5d17e33e53de17f"
+            ]
+        ]
+    },
+    {
+        "id": "b8dc1a5d41b25afc",
+        "type": "change",
+        "z": "d62ce10cf8124030",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.value",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 960,
+        "y": 660,
+        "wires": [
+            [
+                "d354bdc50ce792da"
+            ]
+        ]
+    },
+    {
+        "id": "52eb727a589da3da",
+        "type": "switch",
+        "z": "d62ce10cf8124030",
+        "name": "GREEN",
+        "property": "payload.id",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "green",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 760,
+        "y": 660,
+        "wires": [
+            [
+                "b8dc1a5d41b25afc"
+            ]
+        ]
+    },
+    {
+        "id": "297389df3dba7b84",
+        "type": "change",
+        "z": "d62ce10cf8124030",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.value",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 960,
+        "y": 700,
+        "wires": [
+            [
+                "263e8cf6b298bb0f"
+            ]
+        ]
+    },
+    {
+        "id": "5f0fcda253a41ec3",
+        "type": "switch",
+        "z": "d62ce10cf8124030",
+        "name": "BLUE",
+        "property": "payload.id",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "blue",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 750,
+        "y": 700,
+        "wires": [
+            [
+                "297389df3dba7b84"
+            ]
+        ]
+    },
+    {
+        "id": "458ae4071818b392",
+        "type": "switch",
+        "z": "d62ce10cf8124030",
+        "name": "lightIntensity",
+        "property": "payload.id",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "lightIntensity",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 770,
+        "y": 580,
+        "wires": [
+            [
+                "259a6793e03cd0d4"
+            ]
+        ]
+    },
+    {
+        "id": "259a6793e03cd0d4",
+        "type": "change",
+        "z": "d62ce10cf8124030",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.value",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 960,
+        "y": 580,
+        "wires": [
+            [
+                "51c5c7b4c0fdc896",
+                "0f4a48abfaa5541f"
+            ]
+        ]
+    },
+    {
+        "id": "51c5c7b4c0fdc896",
+        "type": "ui_gauge",
+        "z": "d62ce10cf8124030",
+        "name": "light intensity",
+        "group": "2e7b447f8a602f27",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Light",
+        "label": "flux",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "20000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 1350,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "9c037f9935eacf9a",
+        "type": "ui_gauge",
+        "z": "d62ce10cf8124030",
+        "name": "red",
+        "group": "2e7b447f8a602f27",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Red",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "255",
+        "colors": [
+            "#ff0000",
+            "#ff0000",
+            "#ff0000"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 1330,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "d435fd6bd1502c11",
+        "type": "ui_gauge",
+        "z": "d62ce10cf8124030",
+        "name": "Blue",
+        "group": "2e7b447f8a602f27",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Blue",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "255",
+        "colors": [
+            "#0000ff",
+            "#0000ff",
+            "#0000ff"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 1330,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "35c0c7780fdf3b9a",
+        "type": "ui_gauge",
+        "z": "d62ce10cf8124030",
+        "name": "Green",
+        "group": "2e7b447f8a602f27",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Green",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "255",
+        "colors": [
+            "#00ff00",
+            "#00ff00",
+            "#00ff00"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 1330,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "c5d17e33e53de17f",
+        "type": "change",
+        "z": "d62ce10cf8124030",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$number(payload)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1160,
+        "y": 620,
+        "wires": [
+            [
+                "9c037f9935eacf9a"
+            ]
+        ]
+    },
+    {
+        "id": "263e8cf6b298bb0f",
+        "type": "change",
+        "z": "d62ce10cf8124030",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$number(payload)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1160,
+        "y": 700,
+        "wires": [
+            [
+                "d435fd6bd1502c11"
+            ]
+        ]
+    },
+    {
+        "id": "d354bdc50ce792da",
+        "type": "change",
+        "z": "d62ce10cf8124030",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$number(payload)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1160,
+        "y": 660,
+        "wires": [
+            [
+                "35c0c7780fdf3b9a"
+            ]
+        ]
+    },
+    {
+        "id": "3ca53d34095bf965",
+        "type": "mqtt out",
+        "z": "d62ce10cf8124030",
+        "name": "",
+        "topic": "leds_strip/lights/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4d6296f2db4785e3",
+        "x": 1450,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "6bc367c889fe9fd8",
+        "type": "inject",
+        "z": "d62ce10cf8124030",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "on",
+        "payloadType": "str",
+        "x": 910,
+        "y": 260,
+        "wires": [
+            [
+                "3ca53d34095bf965"
+            ]
+        ]
+    },
+    {
+        "id": "8281319ac7631959",
+        "type": "inject",
+        "z": "d62ce10cf8124030",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "off",
+        "payloadType": "str",
+        "x": 910,
+        "y": 300,
+        "wires": [
+            [
+                "3ca53d34095bf965"
+            ]
+        ]
+    },
+    {
+        "id": "0f4a48abfaa5541f",
+        "type": "switch",
+        "z": "d62ce10cf8124030",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "1000",
+                "vt": "str"
+            },
+            {
+                "t": "gte",
+                "v": "1000",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1150,
+        "y": 460,
+        "wires": [
+            [
+                "d53edd01407d414a"
+            ],
+            [
+                "4741f44c8e03b879"
+            ]
+        ]
+    },
+    {
+        "id": "d53edd01407d414a",
+        "type": "change",
+        "z": "d62ce10cf8124030",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "on",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1320,
+        "y": 440,
+        "wires": [
+            [
+                "3ca53d34095bf965"
+            ]
+        ]
+    },
+    {
+        "id": "4741f44c8e03b879",
+        "type": "change",
+        "z": "d62ce10cf8124030",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "off",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1320,
+        "y": 480,
+        "wires": [
+            [
+                "3ca53d34095bf965"
+            ]
+        ]
+    },
+    {
+        "id": "4d6296f2db4785e3",
+        "type": "mqtt-broker",
+        "name": "local mqtt broker on gateway",
+        "broker": "192.168.12.1",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "2e7b447f8a602f27",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "f084747d9b4f2415",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f084747d9b4f2415",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]

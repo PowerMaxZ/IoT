@@ -1,0 +1,263 @@
+[
+    {
+        "id": "bb52aaab0d7a51b7",
+        "type": "tab",
+        "label": "harvestmate - hall",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f12b1a87a2a406ed",
+        "type": "mqtt in",
+        "z": "bb52aaab0d7a51b7",
+        "name": "",
+        "topic": "hall/buoy",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "4d6296f2db4785e3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 260,
+        "y": 260,
+        "wires": [
+            [
+                "f0fa61467c8c3a74",
+                "4db344997be769b6"
+            ]
+        ]
+    },
+    {
+        "id": "f0fa61467c8c3a74",
+        "type": "debug",
+        "z": "bb52aaab0d7a51b7",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 400,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "4db344997be769b6",
+        "type": "switch",
+        "z": "bb52aaab0d7a51b7",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "off",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "on",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 430,
+        "y": 260,
+        "wires": [
+            [
+                "f52b5c3ae5af0cd6",
+                "402b3e38537e3583"
+            ],
+            [
+                "b936003eaaf4d1a4",
+                "04dcefa64b2c9f83"
+            ]
+        ]
+    },
+    {
+        "id": "f52b5c3ae5af0cd6",
+        "type": "change",
+        "z": "bb52aaab0d7a51b7",
+        "name": "WATER LOW",
+        "rules": [
+            {
+                "t": "set",
+                "p": "text",
+                "pt": "msg",
+                "to": "Water Low",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 220,
+        "wires": [
+            [
+                "7de29143751433ae"
+            ]
+        ]
+    },
+    {
+        "id": "402b3e38537e3583",
+        "type": "change",
+        "z": "bb52aaab0d7a51b7",
+        "name": "RED",
+        "rules": [
+            {
+                "t": "set",
+                "p": "color",
+                "pt": "msg",
+                "to": "red",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 590,
+        "y": 160,
+        "wires": [
+            [
+                "7de29143751433ae"
+            ]
+        ]
+    },
+    {
+        "id": "7de29143751433ae",
+        "type": "ui_button",
+        "z": "bb52aaab0d7a51b7",
+        "name": "",
+        "group": "2e7b447f8a602f27",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "{{text}}",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "{{color}}",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 870,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b936003eaaf4d1a4",
+        "type": "change",
+        "z": "bb52aaab0d7a51b7",
+        "name": "GREEN",
+        "rules": [
+            {
+                "t": "set",
+                "p": "color",
+                "pt": "msg",
+                "to": "green",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 600,
+        "y": 300,
+        "wires": [
+            [
+                "7de29143751433ae"
+            ]
+        ]
+    },
+    {
+        "id": "04dcefa64b2c9f83",
+        "type": "change",
+        "z": "bb52aaab0d7a51b7",
+        "name": "WATER OK",
+        "rules": [
+            {
+                "t": "set",
+                "p": "text",
+                "pt": "msg",
+                "to": "Water Ok",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 610,
+        "y": 360,
+        "wires": [
+            [
+                "7de29143751433ae"
+            ]
+        ]
+    },
+    {
+        "id": "4d6296f2db4785e3",
+        "type": "mqtt-broker",
+        "name": "local mqtt broker on gateway",
+        "broker": "192.168.12.1",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "2e7b447f8a602f27",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "f084747d9b4f2415",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f084747d9b4f2415",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
